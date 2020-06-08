@@ -1,0 +1,33 @@
+{% extends 'base_generic.html' %}
+{% block body %}
+    {% if page_obj %}
+        <ul>
+        {% for link in page_obj %}
+            <li>
+                <br>Redirects: {{ link.redirects }}
+                <br>Short link: <a href="{{ link.shortened_link }}">{{ link.shortened_link }}</a>
+                <br>Full link: <a href="{{ link.shortened_link }}">{{ link.full_link }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <li>No links to show</li>
+    {% endif %}
+    <div class="pagination">
+    <span class="step-links">
+        {% if  page_obj.has_previous %}
+            <a href="?page=1 ">первый</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+ Страница {{ page_obj.number }} из {{  page_obj.paginator.num_pages }}.
+ </span>
+
+        {% if  page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.пагинатор.num_pages }}">последний & raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base_generic.html' %}
+{% block body %}
+    <form method="post">
+    {% csrf_token %}
+    {{ form.link.errors }}
+    {{ form.link }}
+    <button type="submit">Get link</button>
+    </form>
+{% endblock %}
