@@ -26,7 +26,7 @@
 
         {% if  page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.пагинатор.num_pages }}">последний & raquo;</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">последний</a>
         {% endif %}
     </span>
 </div>
