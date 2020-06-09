@@ -1,0 +1,20 @@
+.get-link{
+    height: 100px;
+    position: fixed;
+    left: 50%;
+    margin-top: 0;
+}
+.list-of-links li{
+    list-style: none;
+}
+.link-button {
+    color: #fff; /* цвет текста */
+    user-select: none; /* убирать выделение текста */
+    background: #2790c6; /* фон кнопки */
+    outline: none; /* убирать контур в Mozilla */
+    width: 100px;
+    padding: 5px;
+
+}
+.link-button:hover { background: #83c0e2; } /* при наведении курсора мышки */
+.link-button:active { background: #0a81bd; } /* при нажатии */

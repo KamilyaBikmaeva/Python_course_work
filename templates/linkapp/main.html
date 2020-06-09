@@ -1,9 +1,19 @@
-{% extends 'base_generic.html' %}
+{% extends 'base.html' %}
 {% block body %}
-    <form method="post">
-    {% csrf_token %}
-    {{ form.link.errors }}
-    {{ form.link }}
-    <button type="submit">Get link</button>
+    <div class="tm-right-column">
+        <div class="tm-content-div">
+            <section id="welcome" class="tm-section">
+                <header>
+                    <h2 class="tm-blue-text tm-welcome-title tm-margin-b-45">Welcome to Link App</h2>
+                </header>
+                <p>Make email-friendly links. Use on blogs, forums, social networks, instant messages, online publications or ad campaigns. Shorten and track it for business or educational projects. Measure the conversions for links and understand your traffic with Tiny's statistics. We can help grow your audience and increase traffic. Shorten a link for your ad campaign and track it. Hide a link. Have an address that you don't want to reveal... such as an affiliate link? Cloak and redirect it - the recipient will only see a short address. Make a link to your online survey or invitation.<br> <br> </p>
+                <form method="post" class="get-link">
+                {% csrf_token %}
+                {{ form.link.errors }}
+                {{ form.link }}
+    <button class="link-button" type="submit"> Get link </button>
     </form>
+            </section>
+        </div>
+    </div>
 {% endblock %}
