@@ -7,6 +7,7 @@ from django.db import models
 # Create your models here.
 from django.urls import reverse
 
+
 # ShortLink model description
 class ShortLink(models.Model):
     full_link = models.TextField()  # Field storing full link to given resource
@@ -19,7 +20,7 @@ class ShortLink(models.Model):
             :return ShortLink(Model)
         """
         self.full_link = self.check_full_link(self.full_link)  # Check full link of model to contain 'http://' beginning
-        link = self.hash_generator(self)  # Generate short link by hash-function
+        link = self.hash_generator(self.full_link)  # Generate short link by hash-function
         link = reverse('linker:redirect_view', kwargs={'short_link': link})  # Get project-scoped link by reverse()
         self.shortened_link = link  # Write generated link to model
         self.save(force_update=True)  # Save changes to DB
